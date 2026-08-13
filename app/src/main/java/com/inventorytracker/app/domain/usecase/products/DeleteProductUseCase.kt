@@ -1,0 +1,13 @@
+package com.inventorytracker.app.domain.usecase.products
+
+import com.inventorytracker.app.domain.model.Product
+import com.inventorytracker.app.domain.repository.ProductRepository
+import javax.inject.Inject
+
+class DeleteProductUseCase @Inject constructor(
+    private val repository: ProductRepository,
+) {
+    suspend operator fun invoke(product: Product) {
+        repository.deleteProduct(product)
+    }
+}
