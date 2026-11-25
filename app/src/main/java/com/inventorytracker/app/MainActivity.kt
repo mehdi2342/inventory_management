@@ -1,3 +1,4 @@
+
 package com.inventorytracker.app
 
 import android.os.Bundle
@@ -15,10 +16,13 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
@@ -36,8 +40,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            InventoryTrackerTheme {
-                MainScreen()
+            CompositionLocalProvider(
+                LocalLayoutDirection provides LayoutDirection.Rtl
+            ) {
+                InventoryTrackerTheme {
+                    MainScreen()
+                }
             }
         }
     }
@@ -88,10 +96,6 @@ private fun MainScreen(navController: NavHostController = rememberNavController(
     }
 }
 
-/**
- * Matches a destination against a bottom-nav item, ignoring optional query
- * arguments (e.g. "products?categoryId={categoryId}" matches "products").
- */
 private fun androidx.navigation.NavDestination?.matches(item: BottomNavItem): Boolean {
     val route = this?.hierarchy?.any { dest ->
         dest.route?.let { r -> r == item.route || r.startsWith("${item.route}?") } == true
