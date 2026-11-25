@@ -1,0 +1,148 @@
+
+<resources>
+    <string name="app_name">DJEFSON لإدارة المخزون</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_scanner">الماسح</string>
+    <string name="nav_products">المنتجات</string>
+
+    <!-- Common -->
+    <string name="action_add">إضافة</string>
+    <string name="action_save">حفظ</string>
+    <string name="action_cancel">إلغاء</string>
+    <string name="action_delete">حذف</string>
+    <string name="action_edit">تعديل</string>
+    <string name="action_confirm">تأكيد</string>
+    <string name="action_back">رجوع</string>
+    <string name="action_retry">إعادة المحاولة</string>
+    <string name="action_close">إغلاق</string>
+    <string name="search">بحث</string>
+
+    <!-- Home -->
+    <string name="home_greeting">إدارة المخزون</string>
+    <string name="home_low_stock">تنبيهات انخفاض المخزون</string>
+    <string name="home_recent_activity">أحدث العمليات</string>
+    <string name="home_total_products">عدد المنتجات</string>
+    <string name="home_total_stock">إجمالي المخزون</string>
+    <string name="home_no_products">لا توجد منتجات حالياً. امسح أول باركود للبدء.</string>
+    <string name="home_no_low_stock">لا توجد تنبيهات لنقص المخزون. عمل رائع!</string>
+    <string name="home_no_recent">لا توجد عمليات مسجلة حتى الآن.</string>
+    <string name="home_view_all">عرض الكل</string>
+
+    <!-- Scanner -->
+    <string name="scanner_title">مسح الباركود</string>
+    <string name="scanner_hint">وجّه الكاميرا نحو الباركود</string>
+    <string name="scanner_permission_rationale">يلزم السماح باستخدام الكاميرا لمسح الباركود. يمكنك أيضاً إدخال رمز الباركود يدوياً.</string>
+    <string name="scanner_permission_denied">تم رفض إذن الكاميرا. لا يزال بإمكانك إدخال الباركود يدوياً.</string>
+    <string name="scanner_manual_title">إدخال يدوي</string>
+    <string name="scanner_manual_hint">أدخل رمز الباركود</string>
+    <string name="scanner_manual_lookup">بحث</string>
+    <string name="scanner_manual_format">الصيغة</string>
+    <string name="scanner_not_found">لم يتم العثور على منتج يحمل الباركود %1$s</string>
+    <string name="scanner_new_barcode">تم اكتشاف باركود جديد</string>
+    <string name="scanner_create_product">إنشاء منتج</string>
+    <string name="scanner_torch">المصباح</string>
+
+    <!-- Products -->
+    <string name="products_title">المنتجات</string>
+    <string name="products_empty">لا توجد منتجات.</string>
+    <string name="products_no_result">لا توجد منتجات تطابق عملية البحث.</string>
+    <string name="products_sort_name">الاسم</string>
+    <string name="products_sort_quantity">الكمية</string>
+    <string name="products_sort_recent">الأحدث إضافة</string>
+    <string name="products_sort_label">ترتيب حسب</string>
+    <string name="products_filter_category">التصنيف</string>
+    <string name="products_all_categories">جميع التصنيفات</string>
+    <string name="products_add">إضافة منتج</string>
+
+    <!-- Product detail -->
+    <string name="product_detail_title">المنتج</string>
+    <string name="product_quantity">الكمية</string>
+    <string name="product_unit">%1$d %2$s</string>
+    <string name="product_low_stock">مخزون منخفض</string>
+    <string name="product_adjust">تعديل المخزون</string>
+    <string name="product_adjust_increase">زيادة</string>
+    <string name="product_adjust_decrease">نقصان</string>
+    <string name="product_adjust_set">تحديد الكمية</string>
+    <string name="product_reason_hint">السبب أو الملاحظة (اختياري)</string>
+    <string name="product_history">سجل العمليات</string>
+    <string name="product_no_history">لا توجد تعديلات مسجلة.</string>
+    <string name="product_information">معلومات المنتج</string>
+    <string name="product_barcode">الباركود</string>
+    <string name="product_barcode_format">صيغة الباركود</string>
+    <string name="product_category">التصنيف</string>
+    <string name="product_description">الوصف</string>
+    <string name="product_low_stock_threshold">حد التنبيه عند انخفاض المخزون</string>
+    <string name="product_created">تاريخ الإضافة</string>
+    <string name="product_updated">آخر تحديث</string>
+    <string name="product_delete_confirm_title">حذف المنتج؟</string>
+    <string name="product_delete_confirm_message">سيتم حذف المنتج "%1$s" وسجل تعديلاته نهائياً.</string>
+    <string name="product_quantity_updated">تم تحديث الكمية إلى %1$d %2$s</string>
+
+    <!-- Adjust validation -->
+    <string name="error_negative_stock">لا يمكن أن تصبح الكمية أقل من الصفر</string>
+    <string name="error_zero_adjustment">لا يوجد تغيير في الكمية</string>
+    <string name="error_quantity_overflow">الكمية كبيرة جداً (الحد الأقصى 9,999,999)</string>
+    <string name="error_product_not_found">المنتج غير موجود</string>
+    <string name="error_fill_required">يرجى ملء جميع الحقول المطلوبة</string>
+
+    <!-- Add / edit product -->
+    <string name="add_product_title">منتج جديد</string>
+    <string name="edit_product_title">تعديل المنتج</string>
+    <string name="product_name">اسم المنتج</string>
+    <string name="product_name_hint">أدخل اسم المنتج</string>
+    <string name="product_barcode_hint">قيمة الباركود</string>
+    <string name="product_format_hint">صيغة الباركود</string>
+    <string name="product_description_hint">وصف اختياري</string>
+    <string name="product_category_hint">اختر التصنيف</string>
+    <string name="product_unit_hint">الوحدة (قطعة، كغ، لتر...)</string>
+    <string name="product_initial_quantity">الكمية الأولية</string>
+    <string name="product_threshold_hint">حد التنبيه عند انخفاض المخزون</string>
+
+    <!-- Categories -->
+    <string name="categories_title">التصنيفات</string>
+    <string name="categories_empty">لا توجد تصنيفات حالياً. أنشئ تصنيفاً لتنظيم منتجاتك.</string>
+    <string name="categories_new">تصنيف جديد</string>
+    <string name="categories_edit">تعديل التصنيف</string>
+    <string name="categories_name">اسم التصنيف</string>
+    <string name="categories_description">الوصف</string>
+    <string name="categories_color">اللون</string>
+    <string name="categories_delete_confirm_title">حذف التصنيف؟</string>
+    <string name="categories_delete_confirm_message">سيتم نقل المنتجات الموجودة في "%1$s" إلى تصنيف غير محدد، مع الاحتفاظ ببيانات المنتجات.</string>
+    <string name="categories_uncategorized">غير مصنف</string>
+    <string name="categories_manage">إدارة التصنيفات</string>
+    <string name="categories_products_count">%1$d منتج</string>
+    <string name="categories_in_use">قيد الاستخدام</string>
+
+    <!-- History -->
+    <string name="history_title">سجل المخزون</string>
+    <string name="history_empty">لا توجد تغييرات مسجلة في المخزون.</string>
+    <string name="history_all_time">كل الفترات</string>
+    <string name="history_all_products">جميع المنتجات</string>
+    <string name="history_no_results">لا توجد عمليات تطابق عوامل التصفية.</string>
+
+    <!-- Change types -->
+    <string name="change_increase">زيادة</string>
+    <string name="change_decrease">نقصان</string>
+    <string name="change_set">تحديد الكمية</string>
+    <string name="change_undo">تراجع</string>
+
+    <!-- Notifications -->
+    <string name="notification_channel_low_stock">تنبيهات انخفاض المخزون</string>
+    <string name="notification_channel_low_stock_desc">تنبيه عند وصول المنتج إلى الحد الأدنى للمخزون</string>
+    <string name="notification_low_stock_title">مخزون منخفض: %1$s</string>
+    <string name="notification_low_stock_body">تبقى %1$d %2$s فقط</string>
+
+    <!-- Export -->
+    <string name="export_title">تصدير البيانات</string>
+    <string name="export_products">تصدير المنتجات (CSV)</string>
+    <string name="export_history">تصدير سجل العمليات (CSV)</string>
+    <string name="export_success">تم التصدير إلى %1$s</string>
+    <string name="export_failure">فشل التصدير</string>
+
+    <!-- About / misc -->
+    <string name="cd_empty">لا يوجد محتوى هنا</string>
+    <string name="no_camera">الكاميرا غير متاحة</string>
+    <string name="units_default">قطعة</string>
+</resources>
