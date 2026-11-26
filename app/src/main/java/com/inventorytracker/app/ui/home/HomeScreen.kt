@@ -16,7 +16,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.outlined.AddAlert
@@ -96,28 +95,33 @@ private fun HomeContent(
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         if (data.categories.isNotEmpty()) {
-            item {
-                Text(
-                    text = stringResource(R.string.nav_products),
-                    style = MaterialTheme.typography.titleMedium,
-                )
-            }
-            item {
-                LazyVerticalGrid(
-                    columns = GridCells.Fixed(2),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp),
-                    modifier = Modifier.fillMaxWidth(),
-                ) {
-                    items(data.categories) { entry ->
-                        CategoryCard(
-                            category = entry.category,
-                            productCount = entry.productCount,
-                            onClick = { onCategoryClick(entry.category.id) },
-                        )
+        if (data.categories.isNotEmpty()) {
+    item {
+        Text(
+            text = stringResource(R.string.nav_products),
+            style = MaterialTheme.typography.titleMedium,
+        )
+    }
+    item {
+        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            data.categories.chunked(2).forEach { rowItems ->
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    rowItems.forEach { entry ->
+                        Box(modifier = Modifier.weight(1f)) {
+                            CategoryCard(
+                                category = entry.category,
+                                productCount = entry.productCount,
+                                onClick = { onCategoryClick(entry.category.id) },
+                            )
+                        }
+                    }
+                    if (rowItems.size == 1) {
+                        Spacer(modifier = Modifier.weight(1f))
                     }
                 }
             }
+        }
+    }
         }
 
         item {
