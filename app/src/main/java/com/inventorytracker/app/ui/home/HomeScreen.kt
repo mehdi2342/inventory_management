@@ -9,13 +9,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.outlined.AddAlert
@@ -35,16 +31,15 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.inventorytracker.app.R
+import com.inventorytracker.app.domain.model.ChangeType
 import com.inventorytracker.app.domain.model.Product
 import com.inventorytracker.app.domain.usecase.dashboard.HomeData
 import com.inventorytracker.app.ui.components.CategoryCard
 import com.inventorytracker.app.ui.components.EmptyState
-import com.inventorytracker.app.ui.components.categoryColor
 import com.inventorytracker.app.ui.components.formatTimestamp
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -95,33 +90,32 @@ private fun HomeContent(
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         if (data.categories.isNotEmpty()) {
-        if (data.categories.isNotEmpty()) {
-    item {
-        Text(
-            text = stringResource(R.string.nav_products),
-            style = MaterialTheme.typography.titleMedium,
-        )
-    }
-    item {
-        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            data.categories.chunked(2).forEach { rowItems ->
-                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    rowItems.forEach { entry ->
-                        Box(modifier = Modifier.weight(1f)) {
-                            CategoryCard(
-                                category = entry.category,
-                                productCount = entry.productCount,
-                                onClick = { onCategoryClick(entry.category.id) },
-                            )
+            item {
+                Text(
+                    text = stringResource(R.string.nav_products),
+                    style = MaterialTheme.typography.titleMedium,
+                )
+            }
+            item {
+                Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    data.categories.chunked(2).forEach { rowItems ->
+                        Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                            rowItems.forEach { entry ->
+                                Box(modifier = Modifier.weight(1f)) {
+                                    CategoryCard(
+                                        category = entry.category,
+                                        productCount = entry.productCount,
+                                        onClick = { onCategoryClick(entry.category.id) },
+                                    )
+                                }
+                            }
+                            if (rowItems.size == 1) {
+                                Spacer(modifier = Modifier.weight(1f))
+                            }
                         }
-                    }
-                    if (rowItems.size == 1) {
-                        Spacer(modifier = Modifier.weight(1f))
                     }
                 }
             }
-        }
-    }
         }
 
         item {
@@ -216,10 +210,10 @@ private fun RecentActivityRow(
     )
 }
 
-private fun changeText(type: com.inventorytracker.app.domain.model.ChangeType, amount: Int, newQuantity: Int): String {
+private fun changeText(type: ChangeType, amount: Int, newQuantity: Int): String {
     val sign = when (type) {
-        com.inventorytracker.app.domain.model.ChangeType.INCREASE -> "+"
-        com.inventorytracker.app.domain.model.ChangeType.DECREASE -> "-"
+        ChangeType.INCREASE -> "+"
+        ChangeType.DECREASE -> "-"
         else -> ""
     }
     return "$sign$amount → $newQuantity"
